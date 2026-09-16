@@ -1,0 +1,1591 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Switch on the Joy | FBNF</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --navy:#183f66;
+      --ink:#294d6d;
+      --blue:#e1f3f9;
+      --blue-deep:#c8e8f3;
+      --cream:#fffdf8;
+      --yellow:#f8d447;
+      --yellow-soft:#fff1a8;
+      --purple:#d6c9ed;
+      --green:#b4dfbe;
+      --pink:#edb8c8;
+      --tool:#abd9ec;
+
+      --content-width:1120px;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family:"Fredoka",sans-serif;
+      line-height:1.3;
+    }
+
+    img {
+      display:block;
+      max-width:100%;
+    }
+
+    a {
+      color:inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top:0;
+    }
+
+    .inner {
+      width:min(var(--content-width), calc(100% - 64px));
+      margin:0 auto;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      overflow:hidden;
+      background:var(--blue);
+    }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:44% 56%;
+      min-height:470px;
+    }
+
+    .hero-copy {
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:55px 50px 55px max(32px, calc((100vw - var(--content-width)) / 2));
+      overflow:hidden;
+    }
+
+    .hero-copy::before {
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      left:-80px;
+      top:30px;
+      border-radius:50%;
+      background:rgba(255,255,255,.52);
+    }
+
+    .hero-copy::after {
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      right:-90px;
+      bottom:-95px;
+      border-radius:50%;
+      background:rgba(255,235,120,.38);
+    }
+
+    .hero-copy > * {
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h1 {
+      max-width:430px;
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(3.1rem, 5.4vw, 5rem);
+      line-height:.83;
+      letter-spacing:-.035em;
+    }
+
+    .hero h2 {
+      max-width:390px;
+      margin:19px 0 9px;
+      color:var(--navy);
+      font-size:clamp(1.3rem, 2vw, 1.85rem);
+      line-height:1.02;
+    }
+
+    .hero p {
+      max-width:380px;
+      margin-bottom:17px;
+      font-size:.86rem;
+    }
+
+    .button {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:fit-content;
+      padding:10px 19px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy);
+      text-decoration:none;
+      font-size:.76rem;
+      font-weight:700;
+      box-shadow:0 3px 0 #d0ad2c;
+      transition:transform .15s ease;
+    }
+
+    .button:hover {
+      transform:translateY(-1px);
+    }
+
+    .hero-photo {
+      position:relative;
+      min-height:470px;
+      margin-right:130px;
+      background:var(--blue-deep);
+      overflow:hidden;
+    }
+
+    .hero-photo img {
+      width:100%;
+      height:100%;
+      min-height:470px;
+      object-fit:cover;
+    }
+
+    .hero-note {
+      position:absolute;
+      top:65px;
+      right:38px;
+      color:white;
+      text-align:center;
+      font-family:"Patrick Hand",cursive;
+      font-size:1.35rem;
+      line-height:.95;
+      transform:rotate(4deg);
+      text-shadow:0 2px 5px rgba(0,0,0,.42);
+    }
+
+    .hero-note span {
+      display:block;
+      margin-top:5px;
+      font-family:"Patrick Hand",cursive;
+      font-size:1.9rem;
+    }
+
+
+    /* =========================
+       MISSION
+    ========================= */
+
+    .mission {
+      background:var(--cream);
+    }
+
+    .mission-grid {
+      display:grid;
+      grid-template-columns:31% 51% 18%;
+      gap:28px;
+      align-items:center;
+      min-height:255px;
+      padding:30px 0;
+    }
+
+    .mission-photo {
+      overflow:hidden;
+      border-radius:48% 43% 46% 35% / 43% 43% 48% 40%;
+    }
+
+    .mission-photo img {
+      width:100%;
+      height:205px;
+      object-fit:cover;
+      object-position: center 25%;
+    }
+
+    .mission h2 {
+      margin:0 0 9px;
+      color:var(--navy);
+      font-size:clamp(1.75rem, 2.8vw, 2.4rem);
+      line-height:.96;
+    }
+
+    .mission p {
+      max-width:570px;
+      margin:7px 0;
+      font-size:.74rem;
+      line-height:1.4;
+    }
+
+    .sticky {
+      padding:25px 13px;
+      background:var(--yellow-soft);
+      color:#66571d;
+      font-family:"Patrick Hand",cursive;
+      font-size:1.25rem;
+      line-height:1.04;
+      text-align:center;
+      transform:rotate(3deg);
+      clip-path:polygon(
+        5% 4%,
+        94% 1%,
+        98% 92%,
+        91% 97%,
+        7% 94%,
+        2% 9%
+      );
+    }
+
+    .sticky::after {
+      content:"♡";
+      display:block;
+      margin-top:6px;
+      color:var(--navy);
+      font-size:1.6rem;
+    }
+
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .how {
+      padding:30px 0 34px;
+      background:var(--blue);
+    }
+
+    .how h2 {
+      margin:0 0 23px;
+      color:var(--navy);
+      text-align:center;
+      font-size:2.05rem;
+      line-height:1;
+    }
+
+    .steps {
+      display:grid;
+      grid-template-columns:1fr 65px 1fr 65px 1fr;
+      align-items:center;
+    }
+
+    .step {
+      text-align:center;
+    }
+
+    .step-icon {
+      display:grid;
+      width:58px;
+      height:58px;
+      place-items:center;
+      margin:0 auto 8px;
+      border-radius:50%;
+      background:var(--blue-deep);
+      overflow:hidden;
+    }
+
+    .step-icon img {
+      width:33px;
+      height:33px;
+      object-fit:contain;
+    }
+
+    .step-title {
+      color:var(--navy);
+      font-size:.84rem;
+      font-weight:700;
+    }
+
+    .number {
+      display:inline-grid;
+      width:23px;
+      height:23px;
+      place-items:center;
+      margin-right:4px;
+      border-radius:50%;
+      background:var(--yellow);
+      color:var(--navy);
+      font-size:.73rem;
+    }
+
+    .step p {
+      max-width:200px;
+      margin:6px auto 0;
+      font-size:.64rem;
+      line-height:1.3;
+    }
+
+    .arrow {
+      color:var(--navy);
+      font-size:1.65rem;
+      text-align:center;
+    }
+
+
+    /* =========================
+       COMMUNITY
+    ========================= */
+
+    .community {
+      width:min(var(--content-width), calc(100% - 64px));
+      margin:30px auto;
+      display:grid;
+      grid-template-columns:1.15fr .9fr 1.15fr;
+      background:white;
+      border-top:1px solid #e2edf1;
+      border-bottom:1px solid #e2edf1;
+    }
+
+    .community-section {
+      min-height:0;
+      padding:23px 20px 21px;
+      align-self:start;
+    }
+
+    .community-section + .community-section {
+      border-left:1px solid #e2edf1;
+    }
+
+    .section-heading {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:var(--navy);
+    }
+
+    .section-heading h2 {
+      margin:0;
+      color:var(--navy);
+      font-size:1.32rem;
+      line-height:1;
+    }
+
+    .heading-icon {
+      width:30px;
+      height:30px;
+      flex:0 0 30px;
+    }
+
+    .heading-icon img {
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .section-description {
+      margin:4px 0 12px 38px;
+      font-size:.62rem;
+      line-height:1.3;
+    }
+
+
+    /* =========================
+       GET INVOLVED
+    ========================= */
+
+    .involvement-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:8px;
+    }
+
+    .involvement-card {
+      min-height:80px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:#f0f9fc;
+      display:flex;
+      align-items:center;
+      gap:9px;
+      text-align:left;
+    }
+
+    .card-icon {
+      display:grid;
+      width:38px;
+      height:38px;
+      flex:0 0 38px;
+      place-items:center;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .card-icon img {
+      width:25px;
+      height:25px;
+      object-fit:contain;
+    }
+
+    .involvement-card:nth-child(1) .card-icon {
+      background:var(--purple);
+    }
+
+    .involvement-card:nth-child(2) .card-icon {
+      background:var(--green);
+    }
+
+    .involvement-card:nth-child(3) .card-icon {
+      background:var(--tool);
+    }
+
+    .involvement-card:nth-child(4) .card-icon {
+      background:var(--pink);
+    }
+
+    .involvement-card strong {
+      display:block;
+      color:var(--navy);
+      font-size:.65rem;
+      line-height:1.05;
+    }
+
+    .involvement-card p {
+      margin:4px 0 0;
+      font-size:.54rem;
+      line-height:1.2;
+    }
+
+    .flyer-link {
+      display:inline-block;
+      margin-top:4px;
+      color:var(--navy);
+      font-size:.53rem;
+      font-weight:700;
+    }
+
+
+    /* =========================
+       SUPPORT
+    ========================= */
+
+    .support {
+      text-align:center;
+    }
+
+    .support .section-heading {
+      justify-content:center;
+    }
+
+    .support > p {
+      max-width:235px;
+      margin:5px auto 8px;
+      font-size:.62rem;
+      line-height:1.3;
+    }
+
+    .qr {
+      width:96px;
+      height:96px;
+      margin:5px auto;
+      object-fit:contain;
+    }
+
+    .scan {
+      margin:3px 0;
+      color:var(--navy);
+      font-family:"Patrick Hand",cursive;
+      font-size:.9rem;
+      line-height:.95;
+      transform:rotate(-2deg);
+    }
+
+    .support .button {
+      margin-top:5px;
+      padding:7px 12px;
+      background:var(--navy);
+      color:white;
+      box-shadow:none;
+      font-size:.59rem;
+    }
+
+    .contact {
+      margin:4px 0 0;
+      font-size:.58rem;
+    }
+
+
+    /* =========================
+       PARTNERSHIP
+    ========================= */
+
+    .partnership-columns {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .partnership-columns h3 {
+      margin:0 0 4px;
+      color:var(--navy);
+      font-size:.73rem;
+    }
+
+    .partnership-columns ul {
+      margin:0;
+      padding-left:13px;
+      font-size:.57rem;
+      line-height:1.25;
+    }
+
+    .partnership-columns li {
+      margin:2px 0;
+    }
+
+    .partnership-note {
+      margin-top:9px;
+      padding:8px 11px;
+      background:var(--blue);
+      color:var(--navy);
+      font-family:"Patrick Hand",cursive;
+      font-size:.79rem;
+      line-height:1.05;
+      text-align:center;
+      transform:rotate(-1deg);
+      clip-path:polygon(
+        1% 13%,
+        97% 5%,
+        100% 88%,
+        3% 96%
+      );
+    }
+
+
+    /* =========================
+       STORY / PHOTO STRIP
+    ========================= */
+
+    .story {
+      width:min(var(--content-width), calc(100% - 64px));
+      margin:0 auto 30px;
+      display:grid;
+      grid-template-columns:1.08fr repeat(4, 1fr);
+      gap:10px;
+      align-items:center;
+    }
+
+    .story-card {
+      min-height:125px;
+      padding:20px 16px;
+      background:var(--navy);
+      color:white;
+      clip-path:polygon(
+        2% 8%,
+        97% 2%,
+        100% 91%,
+        4% 98%
+      );
+    }
+
+    .story-card h2 {
+      margin:0 0 7px;
+      color:white;
+      font-family:"Patrick Hand",cursive;
+      font-size:1.42rem;
+      line-height:.95;
+    }
+
+    .story-card p {
+      margin:0;
+      font-size:.56rem;
+      line-height:1.25;
+    }
+
+    .story-photo {
+      height:124px;
+      overflow:hidden;
+      border-radius:10px;
+      box-shadow:0 3px 9px rgba(23,61,99,.15);
+    }
+
+    .story-photo:nth-child(2) {
+      transform:rotate(-1deg);
+    }
+
+    .story-photo:nth-child(3) {
+      transform:rotate(1deg);
+    }
+
+    .story-photo:nth-child(4) {
+      transform:rotate(-1deg);
+    }
+
+    .story-photo:nth-child(5) {
+      transform:rotate(1deg);
+    }
+
+    .story-photo img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding:19px max(32px, calc((100vw - var(--content-width)) / 2)) 13px;
+      background:var(--navy);
+      color:white;
+    }
+
+    .footer-main {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:25px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .brand-symbol {
+      display:grid;
+      width:42px;
+      height:42px;
+      place-items:center;
+      border-radius:50%;
+      background:white;
+      color:var(--yellow);
+      font-size:1.4rem;
+    }
+
+    .brand strong {
+      display:block;
+      font-size:1.1rem;
+      line-height:.9;
+    }
+
+    .brand small {
+      display:block;
+      margin-top:4px;
+      font-size:.53rem;
+    }
+
+    .follow {
+      text-align:right;
+    }
+
+    .follow h3 {
+      margin:0 0 6px;
+      color:white;
+      font-family:"Patrick Hand",cursive;
+      font-size:1rem;
+      font-weight:400;
+    }
+
+    .socials {
+      display:flex;
+      justify-content:flex-end;
+      gap:7px;
+    }
+
+    .social {
+      display:grid;
+      width:29px;
+      height:29px;
+      place-items:center;
+      border-radius:50%;
+      background:white;
+      color:var(--navy);
+      transition:transform .15s ease;
+    }
+
+    .social:hover {
+      transform:translateY(-2px);
+    }
+
+    .social svg {
+      width:16px;
+      height:16px;
+      fill:currentColor;
+    }
+
+    .footer-bottom {
+      margin-top:12px;
+      text-align:center;
+      font-size:.49rem;
+      opacity:.78;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width:900px) {
+
+      .inner {
+        width:calc(100% - 50px);
+      }
+
+      .hero-grid {
+        display:grid;
+        grid-template-columns:50% 50%;
+        min-height:470px;
+      }
+
+      .hero-copy {
+        min-height:380px;
+        padding:48px 30px;
+      }
+
+      .hero-photo,
+      .hero-photo img {
+        min-height:350px;
+        height:350px;
+      }
+
+      .mission-grid {
+        grid-template-columns:34% 1fr;
+      }
+
+      .sticky {
+        grid-column:1 / -1;
+        width:210px;
+        justify-self:center;
+      }
+
+      .community {
+        width:calc(100% - 50px);
+        grid-template-columns:1fr;
+      }
+
+      .community-section + .community-section {
+        border-top:1px solid #e2edf1;
+        border-left:0;
+      }
+
+      .story {
+        width:calc(100% - 50px);
+      }
+
+      footer {
+        padding-left:25px;
+        padding-right:25px;
+      }
+    }
+
+
+    /* =========================
+       PHONE
+    ========================= */
+
+    @media (max-width:650px) {
+
+      .inner {
+        width:calc(100% - 30px);
+      }
+
+      .hero-copy {
+        padding:42px 25px;
+      }
+
+      .hero h1 {
+        font-size:clamp(3.2rem, 17vw, 5rem);
+      }
+
+      .hero-note {
+        top:38px;
+        right:16px;
+      }
+
+      .mission-grid {
+        grid-template-columns:1fr;
+        padding:25px 0;
+        text-align:center;
+      }
+
+      .mission-photo img {
+        height:215px;
+      }
+
+      .mission p {
+        font-size:.73rem;
+      }
+
+      .steps {
+        display:block;
+      }
+
+      .step {
+        margin:19px 0;
+      }
+
+      .arrow {
+        transform:rotate(90deg);
+        margin:-7px 0;
+      }
+
+      .community {
+        width:calc(100% - 30px);
+        margin:20px auto;
+      }
+
+      .involvement-grid {
+        grid-template-columns:1fr 1fr;
+      }
+
+      .involvement-card {
+        min-height:88px;
+      }
+
+      .partnership-columns {
+        gap:8px;
+      }
+
+      .story {
+        width:calc(100% - 30px);
+        grid-template-columns:repeat(2,1fr);
+        padding:15px 0;
+      }
+
+      .story-card {
+        grid-column:1 / -1;
+      }
+
+      .story-photo {
+        height:130px;
+      }
+
+      .footer-main {
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .follow {
+        text-align:center;
+      }
+
+      .socials {
+        justify-content:center;
+      }
+
+      footer {
+        padding-left:15px;
+        padding-right:15px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+      <div class="hero-grid">
+
+        <div class="hero-copy">
+
+          <h1>
+            Switch on<br>
+            the Joy
+          </h1>
+
+          <h2>
+            Making play more accessible for every child.
+          </h2>
+
+          <p>
+            We adapt toys so children with disabilities can interact with them
+            using an accessible external switch.
+          </p>
+
+          <a
+            class="button"
+            href="https://www.switchedtoys.org/"
+            target="_blank"
+            rel="noopener"
+          >
+            Learn More &#8599;
+          </a>
+
+        </div>
+
+
+        <div class="hero-photo">
+
+          <img
+            src="images/hero.jpg"
+            alt="Child enjoying an adapted toy"
+          >
+
+          <div class="hero-note">
+            Same toys.<br>
+            New possibilities.
+            <span>♡</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MISSION
+    ========================= -->
+
+    <section class="mission">
+
+      <div class="inner mission-grid">
+
+        <div class="mission-photo">
+
+          <img
+            src="images/mission.jpg"
+            alt="Volunteers working with an adapted toy"
+          >
+
+        </div>
+
+
+        <div>
+
+          <h2>
+            Switched Adapted Toys Mission
+          </h2>
+
+          <p>
+            Many children with disabilities face barriers when playing with
+            ordinary toys. Small buttons, fine-motor requirements, or multiple
+            controls can make a toy difficult or impossible to use.
+          </p>
+
+          <p>
+            Switched Adapted Toys removes those barriers by modifying toys so
+            they can be activated with an accessible external switch &mdash;
+            giving children the independence, confidence, and joy they deserve.
+          </p>
+
+        </div>
+
+
+        <div class="sticky">
+
+          Real toys.<br>
+          Real inclusion.<br>
+          Real impact.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================= -->
+
+    <section class="how">
+
+      <div class="inner">
+
+        <h2>
+          How It Works
+        </h2>
+
+
+        <div class="steps">
+
+          <div class="step">
+
+            <div class="step-icon">
+
+              <img
+                src="images/icon-how-toy.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div class="step-title">
+              <span class="number">1</span>
+              A Toy is Chosen
+            </div>
+
+            <p>
+              We start with a toy that brings joy to a child.
+            </p>
+
+          </div>
+
+
+          <div class="arrow">
+            &#8594;
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-icon">
+
+              <img
+                src="images/icon-how-modify.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div class="step-title">
+              <span class="number">2</span>
+              The Toy is Modified
+            </div>
+
+            <p>
+              We add an external switch so it can be activated with one simple press.
+            </p>
+
+          </div>
+
+
+          <div class="arrow">
+            &#8594;
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-icon">
+
+              <img
+                src="images/icon-how-play.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div class="step-title">
+              <span class="number">3</span>
+              The Child Plays
+            </div>
+
+            <p>
+              The toy is now accessible, independent, and full of fun!
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMMUNITY
+    ========================= -->
+
+    <section class="community">
+
+
+      <!-- GET INVOLVED -->
+
+      <div class="community-section">
+
+        <div class="section-heading">
+
+          <span class="heading-icon">
+            <img
+              src="images/icon-volunteer.svg"
+              alt=""
+            >
+          </span>
+
+          <h2>
+            Get Involved
+          </h2>
+
+        </div>
+
+
+        <p class="section-description">
+          There are many ways to make a difference!
+        </p>
+
+
+        <div class="involvement-grid">
+
+
+          <div class="involvement-card">
+
+            <div class="card-icon">
+
+              <img
+                src="images/icon-volunteer.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div>
+
+              <strong>
+                Volunteer
+              </strong>
+
+              <p>
+                Give your time and skills.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="involvement-card">
+
+            <div class="card-icon">
+
+              <img
+                src="images/icon-toys.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div>
+
+              <strong>
+                Donate Toys
+              </strong>
+
+              <p>
+                New or gently used toys are appreciated.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="involvement-card">
+
+            <div class="card-icon">
+
+              <img
+                src="images/icon-supplies.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div>
+
+              <strong>
+                Donate Supplies
+              </strong>
+
+              <p>
+                Tools, materials, or more help us adapt.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="involvement-card">
+
+            <div class="card-icon">
+
+              <img
+                src="images/icon-spread.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div>
+
+              <strong>
+                Spread the Word
+              </strong>
+
+              <p>
+                Share our mission with your community.
+              </p>
+
+              <a
+                class="flyer-link"
+                href="https://drive.google.com/file/d/1G-lauoR0pN1TKnvUqkVOxu9mTz4TzR_0/view?usp=sharing"
+                target="_blank"
+                rel="noopener"
+              >
+                View our flyer &#8599;
+              </a>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- SUPPORT -->
+
+      <div class="community-section support">
+
+        <div class="section-heading">
+
+          <h2>
+            Support the Project
+          </h2>
+
+        </div>
+
+
+        <p>
+          Your donations help provide materials, tools, and more toys to adapt
+          for children in our community.
+        </p>
+
+
+        <img
+          class="qr"
+          src="images/donations-qr.jpg"
+          alt="QR code for donations"
+        >
+
+
+        <div class="scan">
+          Scan to make<br>
+          a donation
+        </div>
+
+
+        <a
+          class="button"
+          href="https://www.givecampus.com/campaigns/52178/donations/new?designation_id=12343012"
+          target="_blank"
+          rel="noopener"
+        >
+          Use this link &#8599;
+        </a>
+
+
+        <p class="contact">
+          &#9742; (573) 476-9077
+        </p>
+
+        <p class="contact">
+          &#9993; eric@switchedtoys.org
+        </p>
+
+      </div>
+
+
+      <!-- PARTNERSHIP -->
+
+      <div class="community-section">
+
+        <div class="section-heading">
+
+          <span class="heading-icon">
+
+            <img
+              src="images/icon-partnership.svg"
+              alt=""
+            >
+
+          </span>
+
+          <h2>
+            Our Partnership
+          </h2>
+
+        </div>
+
+
+        <p class="section-description">
+          We're proud to partner with Switched Adapted Toys, a national
+          organization with the same mission as us &mdash; to make play more
+          accessible for all children.
+        </p>
+
+
+        <div class="partnership-columns">
+
+
+          <div>
+
+            <h3>
+              What They Gain
+            </h3>
+
+            <ul>
+              <li>Support for their mission</li>
+              <li>More adapted toys</li>
+              <li>A stronger community</li>
+              <li>More volunteers</li>
+            </ul>
+
+          </div>
+
+
+          <div>
+
+            <h3>
+              What We Gain
+            </h3>
+
+            <ul>
+              <li>Hands-on engineering experience</li>
+              <li>Real-world problem solving</li>
+              <li>Leadership &amp; teamwork</li>
+              <li>A chance to make a difference</li>
+            </ul>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="partnership-note">
+          Together, we're not just building robots &mdash;
+          we're building a more inclusive world.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         STORY / PHOTOS
+    ========================= -->
+
+    <section class="story">
+
+
+      <div class="story-card">
+
+        <h2>
+          It's more than<br>
+          just a project...
+        </h2>
+
+        <p>
+          It's a chance to use our skills, creativity, and teamwork to help
+          others and make a real difference in our community.
+        </p>
+
+      </div>
+
+
+      <div class="story-photo">
+
+        <img
+          src="images/photo1.jpg"
+          alt="FBNF Switched Adapted Toys project"
+        >
+
+      </div>
+
+
+      <div class="story-photo">
+
+        <img
+          src="images/photo2.jpg"
+          alt="Volunteers adapting a toy"
+        >
+
+      </div>
+
+
+      <div class="story-photo">
+
+        <img
+          src="images/photo3.jpg"
+          alt="Adapted toys"
+        >
+
+      </div>
+
+
+      <div class="story-photo">
+
+        <img
+          src="images/photo4.jpg"
+          alt="Child enjoying an adapted toy"
+        >
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-main">
+
+
+      <div class="brand">
+
+        <div class="brand-symbol">
+          &#9673;
+        </div>
+
+        <div>
+
+          <strong>
+            SWITCHED<br>
+            ADAPTED TOYS
+          </strong>
+
+          <small>
+            Small Switch. Big Possibilities.
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="follow">
+
+        <h3>
+          Follow Them
+        </h3>
+
+
+        <div class="socials">
+
+
+          <!-- FACEBOOK -->
+
+          <a
+            class="social"
+            href="https://www.facebook.com/people/Switched-Adapted-Toys/61552965215533/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M14 8h3V4h-3c-3.1 0-5 1.9-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.7.3-1 1-1Z"/>
+            </svg>
+
+          </a>
+
+
+          <!-- INSTAGRAM -->
+
+          <a
+            class="social"
+            href="https://www.instagram.com/switched_adapted_toys/?next=%2F"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 12 16a4.5 4.5 0 0 1 0-9Zm0 2A2.5 2.5 0 1 0 12 14a2.5 2.5 0 0 0 0-5.5ZM17.5 6a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+            </svg>
+
+          </a>
+
+
+          <!-- YOUTUBE -->
+
+          <a
+            class="social"
+            href="https://www.youtube.com/@switchedadaptedtoys"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.6A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.6 8.9.6 8.9.6s7 0 8.9-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.8 15.8V8.2l6.4 3.8-6.4 3.8Z"/>
+            </svg>
+
+          </a>
+
+
+          <!-- TIKTOK -->
+
+          <a
+            class="social"
+            href="https://www.tiktok.com/@switchedadaptedtoys?is_from_webapp=1&sender_device=pc"
+            target="_blank"
+            rel="noopener"
+            aria-label="TikTok"
+          >
+
+            <svg viewBox="0 0 24 24">
+              <path d="M16 2h3c.2 1.7 1.2 3.3 3 4v3c-1.1 0-2.2-.3-3.1-.8v6.3a7.5 7.5 0 1 1-6.5-7.4v3.1a4.5 4.5 0 1 0 3.5 4.3V2Z"/>
+            </svg>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+      A local initiative in partnership with Switched Adapted Toys
+      | Peoria, IL &nbsp;&bull;&nbsp;
+      Making play more accessible for every child.
+    </div>
+
+  </footer>
+
+</body>
+</html>
