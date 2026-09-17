@@ -108,7 +108,7 @@
       max-width:430px;
       margin:0;
       color:var(--navy);
-      font-size:clamp(3.1rem, 5.4vw, 5rem);
+      font-size:clamp(3.5rem, 6.4vw, 6rem);
       line-height:.83;
       letter-spacing:-.035em;
     }
@@ -124,7 +124,8 @@
     .hero p {
       max-width:380px;
       margin-bottom:17px;
-      font-size:.86rem;
+      font-size:1rem;
+      line-height:1.4;
     }
 
     .button {
@@ -238,7 +239,7 @@
     .mission p {
       max-width:570px;
       margin:7px 0;
-      font-size:.74rem;
+      font-size:.9rem;
       line-height:1.4;
     }
 
@@ -503,6 +504,39 @@
       border-top:1px solid #e2edf1;
       border-bottom:1px solid #e2edf1;
       overflow:hidden;
+    }
+
+    .community > .partnership-panel {
+      min-height:0;
+      height:auto;
+      margin:0;
+      padding:23px 20px 21px;
+      background:white;
+      border:0;
+      border-radius:0;
+    }
+
+    .how-content > .community-section {
+      min-height:0;
+      padding:23px 26px 21px;
+      background:var(--cream);
+      border-radius:22px;
+    }
+
+    .how-content > .community-section .section-heading h2 {
+      font-size:1.65rem;
+    }
+
+    .how-content > .community-section .section-description {
+      font-size:.78rem;
+    }
+
+    .how-content > .community-section .involvement-card strong {
+      font-size:.96rem;
+    }
+
+    .how-content > .community-section .involvement-card p {
+      font-size:.76rem;
     }
 
     .community-section {
@@ -978,7 +1012,7 @@
       }
 
       .hero h1 {
-        font-size:clamp(3.2rem, 17vw, 5rem);
+        font-size:clamp(3.5rem, 18vw, 5.5rem);
       }
 
       .hero-photo {
@@ -1020,6 +1054,10 @@
       .how-content {
         grid-template-columns:1fr;
         gap:16px;
+      }
+
+      .how-content > .community-section {
+        padding:20px;
       }
 
       .how-stage {
@@ -1143,12 +1181,6 @@
             alt="Child enjoying an adapted toy"
           >
 
-          <div class="hero-note">
-            Same toys.<br>
-            New possibilities.
-            <span>♡</span>
-          </div>
-
         </div>
 
       </div>
@@ -1238,11 +1270,11 @@
 
                   <div class="step-title">
                     <span class="number">1</span>
-                    A Toy is Chosen
+                    You donate a toy
                   </div>
 
                   <p>
-                    We start with a toy that brings joy to a child.
+                    These toys will be chosen from the wishlist assembled by the kids in need.
                   </p>
 
                 </article>
@@ -1255,7 +1287,7 @@
 
                   <div class="step-title">
                     <span class="number">2</span>
-                    The Toy is Modified
+                    We modify the toy
                   </div>
 
                   <p>
@@ -1272,7 +1304,7 @@
 
                   <div class="step-title">
                     <span class="number">3</span>
-                    The Child Plays
+                    Playtime!
                   </div>
 
                   <p>
@@ -1763,6 +1795,15 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const howContent = document.querySelector('.how-content');
+      const community = document.querySelector('.community');
+      const partnershipPanel = document.querySelector('.partnership-panel');
+      const involvementSection = document.querySelector('.involvement-grid').closest('.community-section');
+      const supportSection = document.querySelector('.support');
+
+      community.insertBefore(partnershipPanel, supportSection);
+      howContent.appendChild(involvementSection);
+
       const cards = Array.from(document.querySelectorAll('.step-card'));
       const prevButton = document.querySelector('.step-nav.prev');
       const nextButton = document.querySelector('.step-nav.next');
