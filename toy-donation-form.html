@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Toy | Switched Adapted Toys</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#183f66; --ink:#294d6d; --blue:#e1f3f9; --cream:#fffdf8; --yellow:#f8d447; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:var(--blue); color:var(--ink); font-family:"Fredoka",sans-serif; }
+    main { width:min(620px, calc(100% - 32px)); margin:0 auto; padding:34px 0 48px; }
+    .back { color:var(--navy); font-size:.82rem; font-weight:700; text-decoration:none; }
+    .panel { margin-top:20px; padding:28px; background:var(--cream); border-radius:22px; box-shadow:0 8px 20px rgba(24,63,102,.08); }
+    h1 { margin:0; color:var(--navy); font-size:clamp(2.2rem, 8vw, 3.5rem); line-height:.9; }
+    .intro { margin:15px 0 24px; line-height:1.45; }
+    label { display:block; margin-top:15px; color:var(--navy); font-size:.82rem; font-weight:700; }
+    input, textarea, select { width:100%; margin-top:6px; padding:11px 12px; border:1px solid #c8e8f3; border-radius:10px; background:white; color:var(--ink); font:inherit; }
+    textarea { min-height:100px; resize:vertical; }
+    .button { margin-top:22px; padding:11px 18px; border:0; border-radius:999px; background:var(--yellow); color:var(--navy); font:700 .82rem "Fredoka",sans-serif; cursor:pointer; }
+    .note { margin:20px 0 0; padding:12px; background:#fff1a8; font-family:"Patrick Hand",cursive; line-height:1.15; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">&#8592; Back to the project</a>
+    <section class="panel">
+      <h1>Request a Toy</h1>
+      <p class="intro">Tell us about the toy that would help your child play more independently. This form is a placeholder for the future toy request form.</p>
+      <form action="#" method="post">
+        <label for="name">Parent or caregiver name</label>
+        <input id="name" name="name" type="text" required>
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" required>
+        <label for="age">Child's age</label>
+        <input id="age" name="age" type="number" min="0" max="120" required>
+        <label for="toy">What kind of toy would your child enjoy?</label>
+        <textarea id="toy" name="toy" required></textarea>
+        <label for="switch">What would make the toy easier to use?</label>
+        <textarea id="switch" name="switch"></textarea>
+        <button class="button" type="submit">Send request &#8594;</button>
+      </form>
+      <p class="note">This placeholder does not submit yet. We will connect it to the official request process when the form is ready.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -208,6 +208,25 @@
       background:var(--cream);
     }
 
+    .event-banner {
+      padding:16px 0;
+      background:var(--yellow-soft);
+      color:var(--navy);
+      text-align:center;
+    }
+
+    .event-banner strong {
+      display:block;
+      font-size:1.12rem;
+    }
+
+    .event-banner span {
+      display:block;
+      margin-top:3px;
+      font-family:"Patrick Hand",cursive;
+      font-size:1.05rem;
+    }
+
     .mission-grid {
       display:grid;
       grid-template-columns:31% 51% 18%;
@@ -320,6 +339,7 @@
       align-items:center;
       justify-content:center;
       height:100%;
+      grid-column:1;
     }
 
     .how-steps-wrap > h2 {
@@ -472,11 +492,11 @@
 
     .partnership-panel .partnership-columns h3 {
       margin-bottom:7px;
-      font-size:.9rem;
+      font-size:1.02rem;
     }
 
     .partnership-panel .partnership-columns ul {
-      font-size:.72rem;
+      font-size:.82rem;
       line-height:1.45;
     }
 
@@ -487,7 +507,7 @@
     .partnership-panel .partnership-note {
       margin-top:auto;
       padding:10px 12px;
-      font-size:.92rem;
+      font-size:1.05rem;
     }
 
 
@@ -517,6 +537,7 @@
     }
 
     .how-content > .community-section {
+      grid-column:2;
       min-height:0;
       padding:23px 26px 21px;
       background:var(--cream);
@@ -537,6 +558,10 @@
 
     .how-content > .community-section .involvement-card p {
       font-size:.76rem;
+    }
+
+    .how-content > .community-section .flyer-link {
+      font-size:.72rem;
     }
 
     .community-section {
@@ -654,6 +679,36 @@
       color:var(--navy);
       font-size:.58rem;
       font-weight:700;
+    }
+
+    .home-help {
+      margin-top:16px;
+      padding:20px 18px;
+      background:var(--yellow-soft);
+      color:var(--navy);
+      text-align:center;
+    }
+
+    .how-content > .home-help {
+      grid-column:1 / -1;
+    }
+
+    .home-help strong {
+      display:block;
+      font-size:1.15rem;
+    }
+
+    .home-help p {
+      margin:6px auto 12px;
+      max-width:680px;
+      font-size:.86rem;
+      line-height:1.25;
+    }
+
+    .home-help .button {
+      padding:9px 15px;
+      font-size:.72rem;
+      box-shadow:none;
     }
 
 
@@ -1056,6 +1111,19 @@
         gap:16px;
       }
 
+      .how-steps-wrap {
+        grid-column:1;
+      }
+
+      .how-content > .community-section,
+      .how-content > .home-help {
+        grid-column:1;
+      }
+
+      .how h2 {
+        font-size:2rem;
+      }
+
       .how-content > .community-section {
         padding:20px;
       }
@@ -1086,7 +1154,7 @@
       }
 
       .involvement-grid {
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:1fr;
       }
 
       .involvement-card {
@@ -1188,6 +1256,14 @@
     </section>
 
 
+    <section class="event-banner" aria-label="Upcoming event">
+      <div class="inner">
+        <strong>Join us for our next toy adaptation event</strong>
+        <span>October 24 &bull; 12:00-5:00</span>
+      </div>
+    </section>
+
+
     <!-- =========================
          MISSION
     ========================= -->
@@ -1274,7 +1350,7 @@
                   </div>
 
                   <p>
-                    These toys will be chosen from the wishlist assembled by the kids in need.
+                    Request a toy through our form so we can learn what would bring your child joy.
                   </p>
 
                 </article>
@@ -1449,57 +1525,14 @@
                 Give your time and skills.
               </p>
 
-            </div>
-
-          </div>
-
-
-          <div class="involvement-card">
-
-            <div class="card-icon">
-
-              <img
-                src="images/icon-toys.svg"
-                alt=""
+              <a
+                class="flyer-link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf7yv-cuxsuDQoqF7BjW0BhEbiyTOJIAQHTAh0NJ1esn_je1w/viewform?usp=header"
+                target="_blank"
+                rel="noopener"
               >
-
-            </div>
-
-            <div>
-
-              <strong>
-                Donate Toys
-              </strong>
-
-              <p>
-                New or gently used toys are appreciated.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="involvement-card">
-
-            <div class="card-icon">
-
-              <img
-                src="images/icon-supplies.svg"
-                alt=""
-              >
-
-            </div>
-
-            <div>
-
-              <strong>
-                Donate Supplies
-              </strong>
-
-              <p>
-                Tools, materials, or more help us adapt.
-              </p>
+                Sign up to volunteer &#8599;
+              </a>
 
             </div>
 
@@ -1541,6 +1574,68 @@
           </div>
 
 
+          <div class="involvement-card">
+
+            <div class="card-icon">
+
+              <img
+                src="images/icon-toys.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div>
+
+              <strong>
+                Donate Toys
+              </strong>
+
+              <p>
+                New or gently used toys are appreciated.
+              </p>
+
+              <span class="flyer-link">
+                Request form coming soon.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="involvement-card">
+
+            <div class="card-icon">
+
+              <img
+                src="images/icon-supplies.svg"
+                alt=""
+              >
+
+            </div>
+
+            <div>
+
+              <strong>
+                Donate Supplies
+              </strong>
+
+              <p>
+                Tools, materials, or more help us adapt.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="home-help">
+          <strong>Can&apos;t make it to an event?</strong>
+          <p>You can still help at home by adapting a toy for your child or learning more about accessible play.</p>
+          <span class="button" aria-disabled="true">Explore tutorials &#8594;</span>
         </div>
 
       </div>
@@ -1799,10 +1894,12 @@
       const community = document.querySelector('.community');
       const partnershipPanel = document.querySelector('.partnership-panel');
       const involvementSection = document.querySelector('.involvement-grid').closest('.community-section');
+      const homeHelp = involvementSection.querySelector('.home-help');
       const supportSection = document.querySelector('.support');
 
       community.insertBefore(partnershipPanel, supportSection);
       howContent.appendChild(involvementSection);
+      howContent.appendChild(homeHelp);
 
       const cards = Array.from(document.querySelectorAll('.step-card'));
       const prevButton = document.querySelector('.step-nav.prev');
