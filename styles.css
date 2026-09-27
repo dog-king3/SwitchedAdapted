@@ -248,8 +248,25 @@ ol {
 }
 
 .donation-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
   width: min(var(--content-width), calc(100% - 48px));
   margin: 0 auto;
+}
+
+.support-photo {
+  flex: 0 1 230px;
+  overflow: hidden;
+  border-radius: 1.2rem;
+}
+
+.support-photo img {
+  width: 100%;
+  max-height: 150px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
 }
 
 .hero-copy h1 + .hero-actions {
@@ -945,7 +962,7 @@ ol {
 
 .collaborators-label {
   color: white;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
@@ -961,6 +978,13 @@ ol {
   border-radius: 0.9rem;
   border: 1px dashed rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.05);
+}
+
+.footer-collaborators {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
 }
 
 .footer-logos {
@@ -981,8 +1005,9 @@ ol {
 }
 
 .footer-logo img {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0.08rem;
   object-fit: contain;
 }
 
@@ -1029,6 +1054,22 @@ ol {
 
   .donation-heading {
     width: min(var(--content-width), calc(100% - 28px));
+  }
+
+  .donation-heading {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .support-photo {
+    flex: 0 1 auto;
+    width: min(230px, 100%);
+    align-self: flex-end;
+  }
+
+  .support-photo img {
+    max-height: 150px;
   }
 
   .nav-toggle {
@@ -1091,6 +1132,11 @@ ol {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  .footer-collaborators {
+    align-self: stretch;
+    align-items: flex-end;
   }
 
   .gallery-item img,
