@@ -32,19 +32,16 @@
   </header>
 
   <main>
-    <section class="page-hero">
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <h1>About Switch on the Joy</h1>
-        </div>
-      </div>
-    </section>
-
     <section class="page-shell">
-      <div class="container">
-        <div class="page-intro">
-          <h2 class="section-title">Why it matters</h2>
+      <div class="container about-layout">
+        <div class="about-copy">
+          <h1 class="section-title">About Switch on the Joy</h1>
+          <p class="section-copy"><em>Switch on the Joy</em> is a project by UICOMP Child Development Clinic Department of Pediatrics. We collaborate with local groups to provide adapted toys for the local community.</p>
+          <h2>Why it matters</h2>
           <p class="section-copy">Accessible play helps children explore, connect, and participate more independently. When everyday toys become easier to activate with external switches, play becomes more joyful, inclusive, and empowering.</p>
+        </div>
+        <div class="about-photo">
+          <img src="images/aboutphoto.jpg" alt="Switch on the Joy community members">
         </div>
       </div>
     </section>
@@ -53,14 +50,10 @@
   <footer class="site-footer">
     <div class="container footer-layout">
       <p class="footer-message">Switch on the Joy — Making toys more accessible for every child</p>
-    </div>
-
-    <div class="container collaborator-row">
-      <span class="collaborators-label">Our collaborators:</span>
-      <div class="collaborator-slots" aria-label="Collaborator logo placeholders">
-        <span class="collaborator-slot" aria-hidden="true"></span>
-        <span class="collaborator-slot" aria-hidden="true"></span>
-        <span class="collaborator-slot" aria-hidden="true"></span>
+      <div class="footer-logos" aria-label="Collaborator logos">
+        <span class="footer-logo"><img src="images/fbnflogo.svg" alt="FBNF" onerror="this.remove()"></span>
+        <span class="footer-logo"><img src="images/acelogo.svg" alt="ACE" onerror="this.remove()"></span>
+        <span class="footer-logo"><img src="images/universitylogo.svg" alt="University" onerror="this.remove()"></span>
       </div>
     </div>
   </footer>
@@ -74,6 +67,12 @@
         const isOpen = mainNav.classList.toggle('is-open');
         navToggle.setAttribute('aria-expanded', String(isOpen));
       });
+    }
+
+    const aboutPhoto = document.querySelector('.about-photo img');
+    if (aboutPhoto) {
+      aboutPhoto.addEventListener('error', () => aboutPhoto.parentElement.remove());
+      if (aboutPhoto.complete && aboutPhoto.naturalWidth === 0) aboutPhoto.parentElement.remove();
     }
   </script>
 </body>

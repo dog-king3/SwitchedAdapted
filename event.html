@@ -71,38 +71,56 @@
             <h3>Photo gallery</h3>
             <div class="gallery-grid">
               <figure class="gallery-item">
-                <img src="images/photo1.jpg" alt="Volunteers gathered around a table with adapted toys and tools">
+                <button class="gallery-trigger" type="button" aria-label="Enlarge event photo 1"><img src="images/photo1.jpg" alt="Volunteers gathered around a table with adapted toys and tools"></button>
+                <figcaption class="gallery-placeholder">photo1.jpg</figcaption>
               </figure>
 
               <figure class="gallery-item">
-                <img src="images/photo2.jpg" alt="A team member preparing a toy for modification">
+                <button class="gallery-trigger" type="button" aria-label="Enlarge event photo 2"><img src="images/photo2.jpg" alt="A team member preparing a toy for modification"></button>
+                <figcaption class="gallery-placeholder">photo2.jpg</figcaption>
               </figure>
 
               <figure class="gallery-item">
-                <img src="images/photo3.jpg" alt="Several adapted toys displayed together after modification">
+                <button class="gallery-trigger" type="button" aria-label="Enlarge event photo 3"><img src="images/photo3.jpg" alt="Several adapted toys displayed together after modification"></button>
+                <figcaption class="gallery-placeholder">photo3.jpg</figcaption>
               </figure>
 
               <figure class="gallery-item">
-                <img src="images/photo4.jpg" alt="A child enjoying an adapted toy during play">
+                <button class="gallery-trigger" type="button" aria-label="Enlarge event photo 4"><img src="images/photo4.jpg" alt="A child enjoying an adapted toy during play"></button>
+                <figcaption class="gallery-placeholder">photo4.jpg</figcaption>
               </figure>
+              <figure class="gallery-item"><button class="gallery-trigger" type="button" aria-label="Enlarge event photo 5"><img src="images/photo5.jpg" alt="Event photo 5"></button><figcaption class="gallery-placeholder">photo5.jpg</figcaption></figure>
+              <figure class="gallery-item"><button class="gallery-trigger" type="button" aria-label="Enlarge event photo 6"><img src="images/photo6.jpg" alt="Event photo 6"></button><figcaption class="gallery-placeholder">photo6.jpg</figcaption></figure>
+              <figure class="gallery-item"><button class="gallery-trigger" type="button" aria-label="Enlarge event photo 7"><img src="images/photo7.jpg" alt="Event photo 7"></button><figcaption class="gallery-placeholder">photo7.jpg</figcaption></figure>
+              <figure class="gallery-item"><button class="gallery-trigger" type="button" aria-label="Enlarge event photo 8"><img src="images/photo8.jpg" alt="Event photo 8"></button><figcaption class="gallery-placeholder">photo8.jpg</figcaption></figure>
+              <figure class="gallery-item"><button class="gallery-trigger" type="button" aria-label="Enlarge event photo 9"><img src="images/photo9.jpg" alt="Event photo 9"></button><figcaption class="gallery-placeholder">photo9.jpg</figcaption></figure>
+              <figure class="gallery-item"><button class="gallery-trigger" type="button" aria-label="Enlarge event photo 10"><img src="images/photo10.jpg" alt="Event photo 10"></button><figcaption class="gallery-placeholder">photo10.jpg</figcaption></figure>
             </div>
           </div>
         </div>
+
+        <section class="story-block peoria-story">
+          <article>
+            <h3>Peoria Nurse Backstory</h3>
+            <p>ask Jen, held at jump, Add donations from ace hardware, community volunteers from cat, uicomp, jump simulation, donations of over 100 toys, created about ___ toys, adapted toys then distributed to _____</p>
+          </article>
+        </section>
       </div>
     </section>
   </main>
 
+  <dialog class="lightbox" aria-label="Enlarged event photo">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged photo">Close</button>
+    <img class="lightbox-image" alt="">
+  </dialog>
+
   <footer class="site-footer">
     <div class="container footer-layout">
       <p class="footer-message">Switch on the Joy — Making toys more accessible for every child</p>
-    </div>
-
-    <div class="container collaborator-row">
-      <span class="collaborators-label">Our collaborators:</span>
-      <div class="collaborator-slots" aria-label="Collaborator logo placeholders">
-        <span class="collaborator-slot" aria-hidden="true"></span>
-        <span class="collaborator-slot" aria-hidden="true"></span>
-        <span class="collaborator-slot" aria-hidden="true"></span>
+      <div class="footer-logos" aria-label="Collaborator logos">
+        <span class="footer-logo"><img src="images/fbnflogo.svg" alt="FBNF" onerror="this.remove()"></span>
+        <span class="footer-logo"><img src="images/acelogo.svg" alt="ACE" onerror="this.remove()"></span>
+        <span class="footer-logo"><img src="images/universitylogo.svg" alt="University" onerror="this.remove()"></span>
       </div>
     </div>
   </footer>
@@ -117,6 +135,38 @@
         navToggle.setAttribute('aria-expanded', String(isOpen));
       });
     }
+
+    const galleryDialog = document.querySelector('.lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const closeLightbox = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      const trigger = item.querySelector('.gallery-trigger');
+      const image = trigger.querySelector('img');
+      const placeholder = item.querySelector('.gallery-placeholder');
+      const showPlaceholder = () => {
+        item.classList.add('is-missing');
+        trigger.disabled = true;
+        trigger.setAttribute('aria-label', `${placeholder.textContent} image placeholder`);
+      };
+
+      image.addEventListener('error', showPlaceholder);
+      if (image.complete && image.naturalWidth === 0) showPlaceholder();
+      trigger.addEventListener('click', () => {
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        galleryDialog.showModal();
+        closeLightbox.focus();
+      });
+    });
+
+    closeLightbox.addEventListener('click', () => galleryDialog.close());
+    galleryDialog.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') galleryDialog.close();
+    });
+    galleryDialog.addEventListener('click', (event) => {
+      if (event.target === galleryDialog) galleryDialog.close();
+    });
   </script>
 </body>
 </html>
