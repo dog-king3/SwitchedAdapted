@@ -131,6 +131,25 @@ ol {
   transform: translateY(-1px);
 }
 
+.info-card h3 {
+  margin: 0 0 0.3rem;
+  color: var(--navy);
+  font-size: 1.15rem;
+}
+
+.info-card p {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.card-link {
+  display: inline-block;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
 :focus-visible {
   outline: 3px solid var(--yellow);
   outline-offset: 3px;
@@ -622,7 +641,7 @@ ol {
 }
 
 .tutorial-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .gallery-grid {
@@ -646,30 +665,17 @@ ol {
 .tutorial-card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
   gap: 0.7rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(24, 63, 102, 0.08);
+  border-radius: 1.3rem;
+  box-shadow: 0 10px 25px rgba(24, 63, 102, 0.03);
 }
 
-.tutorial-card .tag {
-  display: inline-block;
-  width: fit-content;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  background: var(--yellow-soft);
-  color: var(--navy);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.tutorial-card h3 {
-  margin: 0;
-  color: var(--navy);
-  font-size: 1.3rem;
-}
-
-.tutorial-card .button-light {
-  margin-top: auto;
+.tutorial-placeholder {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(225, 243, 249, 0.25));
 }
 
 .donation-grid {
@@ -708,7 +714,7 @@ ol {
 .site-footer {
   background: var(--navy);
   color: white;
-  padding: 2.1rem 0 1rem;
+  padding: 2.1rem 0 1.5rem;
 }
 
 .footer-layout {
@@ -718,33 +724,40 @@ ol {
   gap: 1.5rem;
 }
 
-.footer-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.footer-mark {
-  display: grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: white;
-  color: var(--navy);
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.footer-brand strong {
-  display: block;
+.footer-message {
+  margin: 0;
   color: white;
-  letter-spacing: -0.04em;
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-.footer-brand small {
-  display: block;
-  opacity: 0.8;
+.collaborator-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.collaborators-label {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.collaborator-slots {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.collaborator-slot {
+  width: 120px;
+  height: 58px;
+  border-radius: 0.9rem;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .footer-socials {
@@ -790,6 +803,10 @@ ol {
   .tutorial-grid,
   .donation-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tutorial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .footer-layout {
@@ -846,7 +863,8 @@ ol {
 
   .process-grid,
   .card-grid,
-  .gallery-grid {
+  .gallery-grid,
+  .tutorial-grid {
     grid-template-columns: 1fr;
   }
 
