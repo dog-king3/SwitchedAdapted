@@ -539,10 +539,127 @@ ol {
   padding: 4rem 0;
 }
 
+.help-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.toy-request {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 100%;
+  padding: 2rem 1.5rem;
+  background: #fff9df;
+  border: 1px solid rgba(24, 63, 102, 0.1);
+  border-left: 5px solid var(--yellow);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 25px rgba(24, 63, 102, 0.05);
+}
+
+.toy-request-label {
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+  font-family: "Patrick Hand", cursive;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+
+.toy-request-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.toy-request h2 {
+  margin-bottom: 1.8rem;
+  color: var(--navy);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  line-height: 1.05;
+}
+
+.toy-request-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.35rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--navy);
+  border-radius: 999px;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.toy-request-link:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+
+.toy-request-deadline {
+  margin: 0.75rem 0 0;
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.toy-request-qr {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  flex: 0 0 190px;
+  padding: 0.7rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(24, 63, 102, 0.1);
+  border-radius: 0.9rem;
+  color: var(--ink);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.toy-request-qr img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 0.45rem;
+  object-fit: contain;
+}
+
+.toy-request-qr p {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.help-options {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.help-options .process-header {
+  max-width: none;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.help-options .section-title {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  line-height: 1.1;
+  text-align: center;
+}
+
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: 1fr;
+  flex: 1;
+  gap: 0.75rem;
 }
 
 .info-card {
@@ -554,6 +671,12 @@ ol {
   background: rgba(225, 243, 249, 0.35);
   border: 1px solid rgba(24, 63, 102, 0.08);
   border-radius: 1.2rem;
+}
+
+.help-options .info-card {
+  min-height: 0;
+  flex: 1;
+  padding: 0.85rem 1rem;
 }
 
 .card-icon {
@@ -917,6 +1040,7 @@ ol {
 
 .donation-options {
   display: grid;
+  align-content: start;
   gap: 0.8rem;
 }
 
@@ -1152,6 +1276,27 @@ ol {
 
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .help-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .toy-request {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .toy-request-copy {
+    width: 100%;
+  }
+
+  .toy-request-qr {
+    width: min(220px, 100%);
+    flex-basis: auto;
+    align-self: center;
   }
 
   .about-layout,
